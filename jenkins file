@@ -26,7 +26,7 @@ sh 'docker build -t HELLOWORLD https://github.com/Shailendra1311/devopsassign2'
         stage('Deploy') {
             steps {
                 script {
-                    sh 'docker run -d --name devopsassign2 -p 8282:8282 devopsassign2'
+                    sh 'docker run -d --HELLOWORLD devopsassign2 -p 8282:8282 devopsassign2'
                 }
             }
         }
