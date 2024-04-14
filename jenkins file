@@ -3,30 +3,20 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-git branch: 'main', url: 'https://github.com/Shailendra1311/devopsassign2'
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
+                git branch: 'main', url: 'https://github.com/Shailendra1311/devopsassign2'
             }
         }
         stage('Build Docker Image') {
             steps {
                 script {
-sh 'docker build -t devopsassign2 https://github.com/Shailendra1311/devopsassign2'
+                    sh 'docker build -t hello-world .'
                 }
             }
         }
         stage('Deploy') {
             steps {
                 script {
-                    sh 'docker run -d --HELLOWORLD devopsassign2 -p 8282:8282 devopsassign2'
+                    sh 'docker run -d --name hello-world -p 8282:8282 hello-world'
                 }
             }
         }
