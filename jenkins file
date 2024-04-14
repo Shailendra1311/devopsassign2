@@ -19,7 +19,7 @@ git branch: 'main', url: 'https://github.com/Shailendra1311/devopsassign2'
         stage('Build Docker Image') {
             steps {
                 script {
-sh 'docker build -t hello-world-demo https://github.com/Shailendra1311/devopsassign2'
+sh 'docker build -t HELLOWORLD https://github.com/Shailendra1311/devopsassign2'
                 }
             }
         }
