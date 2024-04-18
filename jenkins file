@@ -6,6 +6,13 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Shailendra1311/devopsassign2'
             }
         }
+        stage('Build with Maven') {
+            steps {
+                script {
+                    sh 'mvn clean install'
+                }
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
@@ -16,7 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh 'docker run -d  hello-world -p 8282:8282 hello-world'
+                    sh 'docker run -d -p 8282:8282 hello-world'
                 }
             }
         }
